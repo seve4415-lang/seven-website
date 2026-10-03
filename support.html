@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SEVEN Pharmacy - Support & Help Center | صيدليات سبعة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================================
+           SEVEN Pharmacy App Design System & Tokens (.rules)
+           ======================================================== */
+        :root {
+            --primary: #9B7A53;
+            --primary-dark: #6B4D2B;
+            --primary-light: #FAF5EE;
+            --primary-container: #EADDCF;
+            --primary-gold: #96734F;
+            --primary-button: #8B6834;
+            --gradient-start: #C8AD96;
+            --gradient-primary: linear-gradient(135deg, #C8AD96 0%, #9B7A53 100%);
+            --gradient-card: linear-gradient(135deg, #FAF5EE 0%, #F5ECE0 100%);
+            --background: #FAF9F6;
+            --surface: #FFFFFF;
+            --card-surface: #FFFFFF;
+            --text-primary: #1C140D;
+            --text-secondary: #8E8E93;
+            --text-muted: #9E9E9E;
+            --text-dark-brown: #5D4037;
+            --border: #F0EFEB;
+            --border-light: #EEEEEE;
+            --divider: #E8E8E8;
+            --success: #52C97A;
+            --whatsapp-green: #25D366;
+            --shadow-subtle: 0 4px 16px rgba(155, 122, 83, 0.06);
+            --shadow-hover: 0 8px 28px rgba(155, 122, 83, 0.12);
+            --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+            --font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(200, 173, 150, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(155, 122, 83, 0.08) 0px, transparent 50%);
+        }
+
+        /* App Viewport Container */
+        .app-shell {
+            width: 100%;
+            max-width: 680px;
+            min-height: 100vh;
+            background: var(--surface);
+            box-shadow: var(--shadow-nav);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+        }
+
+        /* Top App Bar */
+        .app-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .brand-icon-box {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 1.1em;
+            box-shadow: 0 4px 10px rgba(155, 122, 83, 0.25);
+        }
+
+        .brand-text-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.15em;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .brand-tagline {
+            font-size: 0.72em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .app-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Language Switcher Pill */
+        .lang-pill-btn {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-container);
+            padding: 7px 15px;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            font-family: var(--font-family);
+            font-size: 0.82em;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-pill-btn:hover {
+            background: var(--primary-container);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        /* Top App Segment Tabs */
+        .app-tabs-wrapper {
+            padding: 10px 16px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .app-tabs-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .app-tabs {
+            display: flex;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .tab-item {
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: #F7F6F2;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tab-item:hover {
+            color: var(--text-primary);
+            background: var(--primary-light);
+        }
+
+        .tab-item.active {
+            background: var(--primary-dark);
+            color: #ffffff;
+            border-color: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(107, 77, 43, 0.2);
+        }
+
+        /* Main Content Scroll Area */
+        .app-content {
+            flex: 1;
+            padding: 20px 18px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Hero Banner Card */
+        .hero-banner-card {
+            background: var(--gradient-card);
+            border: 1px solid var(--primary-container);
+            border-radius: var(--radius-xl);
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .hero-banner-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: rgba(155, 122, 83, 0.08);
+            pointer-events: none;
+        }
+
+        .hero-chip {
+            align-self: flex-start;
+            background: #ffffff;
+            color: var(--primary-dark);
+            font-size: 0.72em;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            margin-bottom: 12px;
+            border: 1px solid rgba(155, 122, 83, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .hero-title {
+            font-size: 1.35em;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.88em;
+            color: var(--text-dark-brown);
+            line-height: 1.5;
+        }
+
+        /* Section Headings */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-badge {
+            font-size: 0.75em;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* App-Style Contact Cards (_buildContactTile) */
+        .contact-tiles-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-tile {
+            background: var(--card-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .contact-tile:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .tile-icon-box {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: var(--radius-md);
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .contact-tile:hover .tile-icon-box {
+            background: var(--primary-container);
+            transform: scale(1.05);
+        }
+
+        .tile-icon-box.whatsapp {
+            background: rgba(37, 211, 102, 0.12);
+            color: var(--whatsapp-green);
+        }
+        .contact-tile:hover .tile-icon-box.whatsapp {
+            background: rgba(37, 211, 102, 0.22);
+        }
+
+        .tile-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .tile-title {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .tile-subtitle {
+            font-size: 0.8em;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .tile-value {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .tile-action-icon {
+            color: var(--primary);
+            font-size: 1em;
+            opacity: 0.7;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-tile:hover .tile-action-icon {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+        [dir="rtl"] .contact-tile:hover .tile-action-icon {
+            transform: translateX(-3px);
+        }
+
+        /* App & Developer Information Card */
+        .app-info-card {
+            background: var(--card-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 20px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .info-card-header h3 {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .app-spec-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .app-spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: var(--radius-md);
+            background: #FBFBFA;
+            border: 1px solid var(--border-light);
+            gap: 10px;
+        }
+
+        .app-spec-key {
+            font-size: 0.82em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .app-spec-val {
+            font-size: 0.88em;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-align: right;
+            word-break: break-all;
+        }
+        [dir="rtl"] .app-spec-val {
+            text-align: left;
+        }
+
+        .app-spec-val a {
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        .app-spec-val a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ Accordion Tiles */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .faq-card {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            background: var(--card-surface);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .faq-card.open {
+            border-color: var(--primary);
+        }
+
+        .faq-header {
+            padding: 16px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            gap: 10px;
+            background: var(--surface);
+            transition: background 0.2s;
+        }
+
+        .faq-header:hover {
+            background: var(--primary-light);
+        }
+
+        .faq-title {
+            font-size: 0.9em;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .faq-arrow {
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 0.85em;
+            transition: transform 0.25s ease;
+        }
+
+        .faq-card.open .faq-arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+            background: #FCFBF9;
+            padding: 0 18px;
+            font-size: 0.86em;
+            color: var(--text-dark-brown);
+            line-height: 1.6;
+        }
+
+        .faq-card.open .faq-body {
+            max-height: 500px;
+            padding: 14px 18px 18px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* App-Style Inquiry Form */
+        .inquiry-card {
+            background: var(--card-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 22px 20px;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 540px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .form-label {
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .app-input {
+            width: 100%;
+            font-family: var(--font-family);
+            font-size: 0.88em;
+            padding: 12px 14px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            background: #F9F8F5;
+            color: var(--text-primary);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .app-input:focus {
+            background: #FFFFFF;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(155, 122, 83, 0.12);
+        }
+
+        .app-primary-button {
+            width: 100%;
+            height: 50px;
+            border-radius: var(--radius-full);
+            border: none;
+            background: var(--gradient-primary);
+            color: #ffffff;
+            font-family: var(--font-family);
+            font-size: 0.95em;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(155, 122, 83, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+            margin-top: 8px;
+        }
+
+        .app-primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(155, 122, 83, 0.35);
+        }
+
+        .app-primary-button:active {
+            transform: translateY(0);
+        }
+
+        /* Legal & Store Compliance Bottom Navigation */
+        .app-footer-nav {
+            margin-top: 10px;
+            padding: 20px 16px;
+            background: #FBFBFA;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .legal-chips {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .legal-chip-link {
+            font-size: 0.78em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: var(--radius-full);
+            background: #FFFFFF;
+            border: 1px solid var(--border-light);
+            transition: var(--transition-smooth);
+        }
+
+        .legal-chip-link:hover, .legal-chip-link.active {
+            color: var(--primary);
+            border-color: var(--primary-container);
+            background: var(--primary-light);
+        }
+
+        .footer-note {
+            font-size: 0.75em;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* SVG Icons */
+        .svg-icon {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-shell">
+        <!-- Top App Bar -->
+        <header class="app-bar">
+            <a href="support.html" class="brand-badge">
+                <div class="brand-icon-box">7</div>
+                <div class="brand-text-col">
+                    <span class="brand-name">SEVEN | سبعة</span>
+                    <span class="brand-tagline" data-i18n="app_tagline">Pharmacy & Health Services</span>
+                </div>
+            </a>
+            <div class="app-bar-actions">
+                <button class="lang-pill-btn" onclick="toggleLanguage()">
+                    <span>🌐</span>
+                    <span id="langLabel">العربية</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Segment Tabs -->
+        <nav class="app-tabs-wrapper">
+            <div class="app-tabs">
+                <a href="#channels" class="tab-item active" data-i18n="tab_channels">💬 Channels</a>
+                <a href="#appinfo" class="tab-item" data-i18n="tab_appinfo">📋 App Details</a>
+                <a href="#faq" class="tab-item" data-i18n="tab_faq">❓ FAQ</a>
+                <a href="#inquiry" class="tab-item" data-i18n="tab_inquiry">✉️ Inquiry</a>
+            </div>
+        </nav>
+
+        <!-- Main Body Content -->
+        <main class="app-content">
+            <!-- Hero Banner -->
+            <section class="hero-banner-card">
+                <div class="hero-chip">
+                    <span>✨</span>
+                    <span data-i18n="hero_badge">Official App Support</span>
+                </div>
+                <h1 class="hero-title" data-i18n="hero_title">How can we help you today?</h1>
+                <p class="hero-subtitle" data-i18n="hero_desc">
+                    Get in touch with the SEVEN Pharmacy support team in Saudi Arabia for orders, prescriptions, or app assistance.
+                </p>
+            </section>
+
+            <!-- Contact Channels Section -->
+            <section id="channels">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>⚡</span>
+                        <span data-i18n="sec_quick_contact">Direct Support Channels</span>
+                    </h2>
+                    <span class="section-badge" data-i18n="status_online">Available</span>
+                </div>
+
+                <div class="contact-tiles-list">
+                    <!-- Phone Call -->
+                    <a href="tel:+966590764497" class="contact-tile">
+                        <div class="tile-icon-box">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="tile-info">
+                            <div class="tile-title" data-i18n="tile_phone_title">Direct Phone Support</div>
+                            <div class="tile-subtitle" data-i18n="tile_phone_desc">Speak with our pharmacy customer care representative</div>
+                            <div class="tile-value" dir="ltr">+966 59 076 4497</div>
+                        </div>
+                        <div class="tile-action-icon">➔</div>
+                    </a>
+
+                    <!-- WhatsApp Chat -->
+                    <a href="https://wa.me/966590764497?text=Hello%20SEVEN%20Pharmacy%20Support,%20I%20need%20assistance" target="_blank" rel="noopener" class="contact-tile">
+                        <div class="tile-icon-box whatsapp">
+                            <svg class="svg-icon" viewBox="0 0 24 24" fill="#25D366"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.33 7.35 9.04 7.42 8.8 7.68C8.56 7.94 7.89 8.56 7.89 9.85C7.89 11.14 8.83 12.38 8.96 12.56C9.09 12.74 10.77 15.48 13.44 16.53C15.65 17.41 16.1 17.23 16.57 17.19C17.04 17.15 18.09 16.57 18.31 15.95C18.53 15.33 18.53 14.8 18.47 14.69C18.41 14.58 18.25 14.52 18.01 14.4C17.77 14.28 16.6 13.7 16.38 13.62C16.16 13.54 16 13.5 15.84 13.74C15.68 13.98 15.22 14.52 15.08 14.68C14.94 14.84 14.8 14.86 14.56 14.74C14.32 14.62 13.55 14.37 12.63 13.55C11.91 12.91 11.43 12.12 11.29 11.88C11.15 11.64 11.27 11.51 11.39 11.39C11.5 11.28 11.64 11.1 11.76 10.96C11.88 10.82 11.92 10.72 12 10.56C12.08 10.4 12.04 10.26 11.98 10.14C11.92 10.02 11.46 8.89 11.27 8.43C11.08 7.97 10.89 8.03 10.74 8.02C10.6 8.01 10.44 8.01 10.28 8.01C10.12 8.01 9.87 8.07 9.67 8.29C9.53 7.35 9.53 7.35 9.53 7.35Z"/></svg>
+                        </div>
+                        <div class="tile-info">
+                            <div class="tile-title" data-i18n="tile_whatsapp_title">WhatsApp Chat</div>
+                            <div class="tile-subtitle" data-i18n="tile_whatsapp_desc">Fast response via WhatsApp messaging</div>
+                            <div class="tile-value" style="color: var(--whatsapp-green);" dir="ltr">+966 59 076 4497</div>
+                        </div>
+                        <div class="tile-action-icon">➔</div>
+                    </a>
+
+                    <!-- Email Support -->
+                    <a href="mailto:info@se-7en.com?subject=SEVEN%20Pharmacy%20Support%20Inquiry" class="contact-tile">
+                        <div class="tile-icon-box">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="tile-info">
+                            <div class="tile-title" data-i18n="tile_email_title">Email Inquiries</div>
+                            <div class="tile-subtitle" data-i18n="tile_email_desc">Inquiries, prescriptions & formal support</div>
+                            <div class="tile-value">info@se-7en.com</div>
+                        </div>
+                        <div class="tile-action-icon">➔</div>
+                    </a>
+
+                    <!-- Official Website -->
+                    <a href="https://se-7en.com" target="_blank" rel="noopener" class="contact-tile">
+                        <div class="tile-icon-box">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div class="tile-info">
+                            <div class="tile-title" data-i18n="tile_web_title">Official Website</div>
+                            <div class="tile-subtitle" data-i18n="tile_web_desc">Learn more about SEVEN pharmacy ecosystem</div>
+                            <div class="tile-value">https://se-7en.com</div>
+                        </div>
+                        <div class="tile-action-icon">➔</div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- App & Developer Information Section -->
+            <section id="appinfo" class="app-info-card">
+                <div class="info-card-header">
+                    <span style="font-size: 1.3em;">📋</span>
+                    <div>
+                        <h3 data-i18n="info_title">Application & Entity Verification</h3>
+                        <p style="font-size: 0.78em; color: var(--text-secondary);" data-i18n="info_subtitle">Official credentials and legal publisher details</p>
+                    </div>
+                </div>
+
+                <div class="app-spec-rows">
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_entity">Developer / Legal Entity</span>
+                        <span class="app-spec-val">Black Falcons</span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_app">App Name</span>
+                        <span class="app-spec-val">SEVEN | سبعة</span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_package">Package / Bundle ID</span>
+                        <span class="app-spec-val">com.se7en.pharmacy</span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_email">Official Email</span>
+                        <span class="app-spec-val"><a href="mailto:info@se-7en.com">info@se-7en.com</a></span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_phone">Customer Phone</span>
+                        <span class="app-spec-val" dir="ltr"><a href="tel:+966590764497">+966 59 076 4497</a></span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_website">Official Website</span>
+                        <span class="app-spec-val"><a href="https://se-7en.com" target="_blank" rel="noopener">https://se-7en.com</a></span>
+                    </div>
+                    <div class="app-spec-row">
+                        <span class="app-spec-key" data-i18n="spec_address">Headquarters / Country</span>
+                        <span class="app-spec-val" data-i18n="val_country">Saudi Arabia</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span>❓</span>
+                        <span data-i18n="sec_faq">Frequently Asked Questions</span>
+                    </h2>
+                    <span class="section-badge" data-i18n="badge_faq">Help Topics</span>
+                </div>
+
+                <div class="faq-accordion">
+                    <!-- Q1 -->
+                    <div class="faq-card">
+                        <div class="faq-header" onclick="toggleFaqCard(this)">
+                            <span class="faq-title" data-i18n="faq_q1">How does SEVEN compare pharmacy prices?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-body" data-i18n="faq_a1">
+                            SEVEN connects directly with licensed pharmacies across Saudi Arabia in real time. We display live pricing side-by-side so you can select the most affordable and fastest delivery option.
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="faq-card">
+                        <div class="faq-header" onclick="toggleFaqCard(this)">
+                            <span class="faq-title" data-i18n="faq_q2">How does prescription fulfillment work?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-body" data-i18n="faq_a2">
+                            Upload a photo or digital copy of your doctor's prescription inside the app. A licensed pharmacist reviews and validates the prescription before preparing and dispatching your medication.
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="faq-card">
+                        <div class="faq-header" onclick="toggleFaqCard(this)">
+                            <span class="faq-title" data-i18n="faq_q3">What are your customer support working hours?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-body" data-i18n="faq_a3">
+                            Our support specialists are available Saturday through Thursday from 9:00 AM to 10:00 PM (KSA Time). Inquiries submitted by email or WhatsApp outside these hours are resolved within 24 hours.
+                        </div>
+                    </div>
+
+                    <!-- Q4 -->
+                    <div class="faq-card">
+                        <div class="faq-header" onclick="toggleFaqCard(this)">
+                            <span class="faq-title" data-i18n="faq_q4">How can I request account or data deletion?</span>
+                            <span class="faq-arrow">▼</span>
+                        </div>
+                        <div class="faq-body" data-i18n="faq_a4">
+                            You can initiate account deletion anytime by visiting our Account Deletion portal or emailing info@se-7en.com. Your personal data is permanently deleted in accordance with Saudi data protection regulations.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Inquiry Form Section -->
+            <section id="inquiry" class="inquiry-card">
+                <div class="info-card-header">
+                    <span style="font-size: 1.3em;">✉️</span>
+                    <div>
+                        <h3 data-i18n="form_heading">Send a Support Message</h3>
+                        <p style="font-size: 0.78em; color: var(--text-secondary);" data-i18n="form_subheading">We will review your message and respond promptly</p>
+                    </div>
+                </div>
+
+                <form onsubmit="sendSupportEmail(event)">
+                    <div class="form-grid">
+                        <div class="form-control-group">
+                            <label class="form-label" data-i18n="lbl_name">Full Name</label>
+                            <input type="text" id="senderName" class="app-input" required placeholder="Your name">
+                        </div>
+                        <div class="form-control-group">
+                            <label class="form-label" data-i18n="lbl_email">Email Address</label>
+                            <input type="email" id="senderEmail" class="app-input" required placeholder="name@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-control-group">
+                            <label class="form-label" data-i18n="lbl_phone">Phone Number (Optional)</label>
+                            <input type="tel" id="senderPhone" class="app-input" placeholder="+966 5X XXX XXXX">
+                        </div>
+                        <div class="form-control-group">
+                            <label class="form-label" data-i18n="lbl_topic">Inquiry Topic</label>
+                            <select id="senderTopic" class="app-input">
+                                <option value="General" data-i18n="opt_1">General Inquiry</option>
+                                <option value="Order & Delivery" data-i18n="opt_2">Order & Delivery</option>
+                                <option value="Prescription" data-i18n="opt_3">Prescription Verification</option>
+                                <option value="Technical Issue" data-i18n="opt_4">Technical App Support</option>
+                                <option value="Account Privacy" data-i18n="opt_5">Account & Privacy</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-control-group">
+                        <label class="form-label" data-i18n="lbl_message">Your Message</label>
+                        <textarea id="senderMessage" class="app-input" rows="4" required placeholder="Describe your question or issue in detail..."></textarea>
+                    </div>
+
+                    <button type="submit" class="app-primary-button">
+                        <span data-i18n="btn_submit">Send Message via Email</span>
+                        <span>➔</span>
+                    </button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Compliance & Legal Navigation Footer -->
+        <footer class="app-footer-nav">
+            <div class="legal-chips">
+                <a href="support.html" class="legal-chip-link active" data-i18n="link_support">Support</a>
+                <a href="index.html" class="legal-chip-link" data-i18n="link_privacy">Privacy Policy</a>
+                <a href="terms_of_service.html" class="legal-chip-link" data-i18n="link_terms">Terms of Service</a>
+                <a href="account_deletion.html" class="legal-chip-link" data-i18n="link_delete">Account Deletion</a>
+            </div>
+            <div class="footer-note">
+                <strong>Black Falcons</strong> &bull; SEVEN | سبعة (com.se7en.pharmacy)<br>
+                &copy; 2025-2026 Black Falcons. All rights reserved. Saudi Arabia.
+            </div>
+        </footer>
+    </div>
+
+    <!-- Self-Contained JavaScript Logic -->
+    <script>
+        const appStrings = {
+            en: {
+                dir: 'ltr',
+                langLabel: 'العربية',
+                app_tagline: 'Pharmacy & Health Services',
+                tab_channels: '💬 Channels',
+                tab_appinfo: '📋 App Details',
+                tab_faq: '❓ FAQ',
+                tab_inquiry: '✉️ Inquiry',
+                hero_badge: 'Official App Support',
+                hero_title: 'How can we help you today?',
+                hero_desc: 'Get in touch with the SEVEN Pharmacy support team in Saudi Arabia for orders, prescriptions, or app assistance.',
+                sec_quick_contact: 'Direct Support Channels',
+                status_online: 'Available',
+                tile_phone_title: 'Direct Phone Support',
+                tile_phone_desc: 'Speak with our pharmacy customer care representative',
+                tile_whatsapp_title: 'WhatsApp Chat',
+                tile_whatsapp_desc: 'Fast response via WhatsApp messaging',
+                tile_email_title: 'Email Inquiries',
+                tile_email_desc: 'Inquiries, prescriptions & formal support',
+                tile_web_title: 'Official Website',
+                tile_web_desc: 'Learn more about SEVEN pharmacy ecosystem',
+                info_title: 'Application & Entity Verification',
+                info_subtitle: 'Official credentials and legal publisher details',
+                spec_entity: 'Developer / Legal Entity',
+                spec_app: 'App Name',
+                spec_package: 'Package / Bundle ID',
+                spec_email: 'Official Email',
+                spec_phone: 'Customer Phone',
+                spec_website: 'Official Website',
+                spec_address: 'Headquarters / Country',
+                val_country: 'Saudi Arabia',
+                sec_faq: 'Frequently Asked Questions',
+                badge_faq: 'Help Topics',
+                faq_q1: 'How does SEVEN compare pharmacy prices?',
+                faq_a1: 'SEVEN connects directly with licensed pharmacies across Saudi Arabia in real time. We display live pricing side-by-side so you can select the most affordable and fastest delivery option.',
+                faq_q2: 'How does prescription fulfillment work?',
+                faq_a2: 'Upload a photo or digital copy of your doctor\'s prescription inside the app. A licensed pharmacist reviews and validates the prescription before preparing and dispatching your medication.',
+                faq_q3: 'What are your customer support working hours?',
+                faq_a3: 'Our support specialists are available Saturday through Thursday from 9:00 AM to 10:00 PM (KSA Time). Inquiries submitted by email or WhatsApp outside these hours are resolved within 24 hours.',
+                faq_q4: 'How can I request account or data deletion?',
+                faq_a4: 'You can initiate account deletion anytime by visiting our Account Deletion portal or emailing info@se-7en.com. Your personal data is permanently deleted in accordance with Saudi data protection regulations.',
+                form_heading: 'Send a Support Message',
+                form_subheading: 'We will review your message and respond promptly',
+                lbl_name: 'Full Name',
+                lbl_email: 'Email Address',
+                lbl_phone: 'Phone Number (Optional)',
+                lbl_topic: 'Inquiry Topic',
+                opt_1: 'General Inquiry',
+                opt_2: 'Order & Delivery',
+                opt_3: 'Prescription Verification',
+                opt_4: 'Technical App Support',
+                opt_5: 'Account & Privacy',
+                lbl_message: 'Your Message',
+                btn_submit: 'Send Message via Email',
+                link_support: 'Support',
+                link_privacy: 'Privacy Policy',
+                link_terms: 'Terms of Service',
+                link_delete: 'Account Deletion'
+            },
+            ar: {
+                dir: 'rtl',
+                langLabel: 'English',
+                app_tagline: 'خدمات الصيدليات والرعاية الصحية',
+                tab_channels: '💬 قنوات التواصل',
+                tab_appinfo: '📋 بيانات التطبيق',
+                tab_faq: '❓ الأسئلة الشائعة',
+                tab_inquiry: '✉️ إرسال رسالة',
+                hero_badge: 'الدعم الرسمي للتطبيق',
+                hero_title: 'كيف يمكننا مساعدتك اليوم؟',
+                hero_desc: 'تواصل مع فريق دعم صيدليات سبعة (SEVEN) في المملكة العربية السعودية لأي استفسار حول الطلبات، الوصفات، أو المساعدة التقنية.',
+                sec_quick_contact: 'قنوات التواصل المباشر',
+                status_online: 'متاح للخدمة',
+                tile_phone_title: 'الاتصال الهاتفي المباشر',
+                tile_phone_desc: 'تحدث مباشرة مع ممثل خدمة العملاء في الصيدلية',
+                tile_whatsapp_title: 'محادثة عبر واتساب',
+                tile_whatsapp_desc: 'رد سريع واستفسارات فورية عبر واتساب',
+                tile_email_title: 'المراسلة عبر البريد الإلكتروني',
+                tile_email_desc: 'للاستفسارات الرسمية والوصفات الطبية والمتابعة',
+                tile_web_title: 'الموقع الإلكتروني الرسمي',
+                tile_web_desc: 'تعرف على خدمات تطبيق سبعة وشبكة الصيدليات',
+                info_title: 'بيانات التطبيق والجهة القانونية',
+                info_subtitle: 'بيانات التسجيل الرسمية للناشر على المتاجر',
+                spec_entity: 'المطور / الكيان القانوني',
+                spec_app: 'اسم التطبيق',
+                spec_package: 'اسم الحزمة (Bundle ID)',
+                spec_email: 'البريد الإلكتروني الرسمي',
+                spec_phone: 'هاتف التواصل',
+                spec_website: 'الموقع الرسمي',
+                spec_address: 'المقر / الدولة',
+                val_country: 'المملكة العربية السعودية',
+                sec_faq: 'الأسئلة الشائعة (FAQ)',
+                badge_faq: 'مواضيع المساعدة',
+                faq_q1: 'كيف تعمل ميزة مقارنة أسعار الصيدليات في تطبيق سبعة؟',
+                faq_a1: 'يرتبط تطبيق سبعة مباشرة بأنظمة الصيدليات المرخصة في المملكة العربية السعودية لحظياً، ليعرض لك أسعار المنتجات والأدوية جنباً إلى جنب لتختار السعر الأفضل والأسرع في التوصيل.',
+                faq_q2: 'كيف تتم معالجة الوصفات الطبية؟',
+                faq_a2: 'قم برفع صورة الوصفة الطبية داخل التطبيق بكل سهولة، حيث يقوم صيدلي مرخص بمراجعتها واعتمادها والتأكد من توافق الجرعات قبل تجهيز الدواء وتوصيله.',
+                faq_q3: 'ما هي مواعيد وأوقات عمل خدمة العملاء؟',
+                faq_a3: 'فريق الدعم الفني متواجد من السبت إلى الخميس من 9:00 صباحاً حتى 10:00 مساءً (بتوقيت المملكة). كما يتم الرد على رسائل البريد والواتساب خلال 24 ساعة.',
+                faq_q4: 'كيف يمكنني حذف حسابي وبياناتي من التطبيق؟',
+                faq_a4: 'يمكنك طلب حذف الحساب فوراً من خلال صفحة حذف الحساب المخصصة أو مراسلتنا على info@se-7en.com، ويتم حذف البيانات نهائياً وفق اللوائح السعودية المعتمدة.',
+                form_heading: 'إرسال رسالة لفريق الدعم',
+                form_subheading: 'سنقوم بمراجعة رسالتك والتواصل معك في أقرب وقت',
+                lbl_name: 'الاسم الكامل',
+                lbl_email: 'البريد الإلكتروني',
+                lbl_phone: 'رقم الهاتف (اختياري)',
+                lbl_topic: 'موضوع الاستفسار',
+                opt_1: 'استفسار عام',
+                opt_2: 'الطلبات والتوصيل',
+                opt_3: 'اعتماد الوصفات الطبية',
+                opt_4: 'دعم فني في التطبيق',
+                opt_5: 'الحساب والخصوصية',
+                lbl_message: 'نص الرسالة أو الاستفسار',
+                btn_submit: 'إرسال الرسالة عبر البريد',
+                link_support: 'الدعم الفني',
+                link_privacy: 'سياسة الخصوصية',
+                link_terms: 'شروط الخدمة',
+                link_delete: 'حذف الحساب'
+            }
+        };
+
+        let currentLocale = 'en';
+
+        function applyLocale(locale) {
+            currentLocale = locale;
+            const dict = appStrings[locale];
+            document.documentElement.lang = locale;
+            document.documentElement.dir = dict.dir;
+            document.getElementById('langLabel').textContent = dict.langLabel;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            localStorage.setItem('seven_pref_lang', locale);
+        }
+
+        function toggleLanguage() {
+            applyLocale(currentLocale === 'en' ? 'ar' : 'en');
+        }
+
+        function toggleFaqCard(el) {
+            const card = el.parentElement;
+            card.classList.toggle('open');
+        }
+
+        function sendSupportEmail(evt) {
+            evt.preventDefault();
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const phone = document.getElementById('senderPhone').value || 'Not provided';
+            const topic = document.getElementById('senderTopic').value;
+            const msg = document.getElementById('senderMessage').value;
+
+            const subject = encodeURIComponent(`SEVEN Support [${topic}]: ${name}`);
+            const body = encodeURIComponent(
+                `Sender Name: ${name}\n` +
+                `Sender Email: ${email}\n` +
+                `Phone Number: ${phone}\n` +
+                `Topic: ${topic}\n\n` +
+                `Message:\n${msg}\n\n` +
+                `---\nSent via SEVEN Pharmacy Support Portal`
+            );
+
+            window.location.href = `mailto:info@se-7en.com?subject=${subject}&body=${body}`;
+        }
+
+        // Smooth tabs highlight on click
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Initialize saved language
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('seven_pref_lang');
+            if (saved && (saved === 'ar' || saved === 'en')) {
+                applyLocale(saved);
+            }
+        });
+    </script>
+</body>
+</html>
